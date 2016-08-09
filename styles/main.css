@@ -1,0 +1,218 @@
+/*universal/general styles*/
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-image: url("../images/ninjaback.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+a:hover, a:visited, a:link, a:active
+{
+    text-decoration: none;
+}
+
+/*welcome modal styles*/
+
+.modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height:100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.5);
+  border: 1px solid black;
+}
+
+.modal-content {
+  background-image: url("../images/canvas.jpeg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid rgb(61, 58, 25);
+  width: 80%;
+  max-width: 425px;
+  height: 70%;
+}
+
+.close {
+  background: url("../icons/ninja-shuriken-1.svg");
+  background-repeat: no-repeat;
+  border: none;
+  float: right;
+}
+
+.close:hover {
+  background: url("../icons/ninja-throwing-stars.svg");
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.incomplete {
+  color: red;
+  float:left;
+}
+
+.warClass {
+  max-height: 90px;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.warClass:hover {
+  transform: scale(2);
+}
+
+.classSelect {
+  transform: scale(2);
+  border: 2px solid red;
+}
+
+.warName {
+  opacity: .5;
+}
+
+.warColor {
+  opacity: .5;
+}
+
+
+/*header styles*/
+
+header {
+  width: 100%;
+  height: 60px;
+}
+
+.titleIcon {
+  width: 25px;
+}
+
+/*main content styles*/
+
+main {
+  width: 100%;
+  height: 100%;
+}
+
+section.tabArea {
+  box-sizing: border-box;
+  min-height: 350px;
+  max-height: 500px;
+  width: 90%;
+  margin: 0 auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+.tabContent {
+  display: none;
+}
+
+.map {
+  /*width: 95%;*/
+  width: 100%;
+  height: 300px;
+  margin: 0 auto;
+}
+
+.equips {
+  box-sizing: border-box;
+  border: 1px solid rgb(61, 58, 25);
+  border-radius: 2px;
+  background-color: rgba(61, 58, 25, .5);
+  margin: 5px;
+  padding: 5px;
+  height: 150px;
+  width: 150px;
+  float: left;
+}
+
+.equipItem {
+  box-sizing: border-box;
+  display: inline-block;
+  border: 1px solid rgb(61, 58, 25);
+  background-color: rgba(224, 221, 172, .4);
+  height: 66px;
+  width: 66px;
+}
+
+.inventory {
+  box-sizing: border-box;
+  display: block;
+  border: 5px solid rgb(61, 58, 25);
+  border-radius: 2px;
+  background-color: rgba(224, 221, 172, .4);
+  height: 100px;
+  width: 97%;
+  margin: 25px auto 10px auto;
+  clear: both;
+}
+
+.charImage {
+  box-sizing: border-box;
+  max-height: 200px;
+  float: right;
+}
+
+.charImage img {
+  max-width: 200px;
+  max-height: 200px;
+}
+
+.charImage img:hover {
+  transform: scale(1.5);
+}
+
+/*footer styles*/
+
+footer {
+  width: 100%;
+  height: 70px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+footer > section {
+  display: inline-block;
+  height: 100%;
+  background-color: rgba(61, 58, 25, .8);
+  border-radius: 10px 10px 0 0;
+
+  padding: 10px 8px 0 8px;
+}
+
+.nav-tab {
+  box-sizing: border-box;
+  font-size: 12px;
+  padding: 5px 5px 25px 5px;
+  border: 1px solid rgb(255, 189, 87);
+  border-bottom: none;
+  border-radius: 5px;
+  overflow: hidden;
+
+  color: rgb(176, 64, 18);
+}
+
+.nav-tab:hover {
+  color: black;
+  background-color: rgba(255, 194, 21, .2);
+}
+
+.navSelect {
+  color: rgb(176, 64, 18);
+  background-color: rgba(255, 194, 21, .2);
+}

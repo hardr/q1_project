@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>RPGo - Go Ninja</title>
+    <link rel="stylesheet" type="text/css" href="styles/normalize.css">
+    <link rel="stylesheet" type="text/css" href="styles/skeleton.css">
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
+  </head>
+  <body>
+    <div id="charModal" class="modal">
+      <div class="modal-content">
+
+        <h4>Welcome to RPGo Ninja</h4>
+
+        <form class="charInput">
+
+          <label>Choose your warrior class:</label>
+              <img src="images/assassin.jpeg" id ="assassin" class="assassin warClass" alt="assassin">
+              <img src="images/hunter.jpeg" id="hunter" class="hunter warClass" alt="hunter">
+              <img src="images/ninjutsu.jpeg" id="ninjutsu" class="ninjutsu warClass" alt="ninjutsu">
+              <img src="images/magic.jpeg" id="magic" class="magic warClass" alt="magic">
+              <img src="images/medic.jpeg" id="medic" class="medic warClass" alt="medic">
+            <!-- <select name="warClass">
+              <option selected disabled>- select class -</option>
+              <option value="assassin">Assassin</option> <!--tricks and tactics -->
+              <!-- <option value="hunter">Hunter</option> <!--ranged -->
+              <!-- <option value="magic">Shinobi Magic</option> <!--magic -->
+              <!-- <option value="ninjutsu">Ninjutsu</option> <!--swords and force -->
+              <!-- <option value="medic">Surgeon</option> <!--healing & -->
+            <!-- </select> -->
+
+          <label>Choose your warrior name:
+            <input type="text" id="warName" class="warName" name="warName" placeholder="Afro-ninja">
+          </label>
+
+          <label class="colorLabel">Choose your garb:
+            <select id="warColor" class="warColor" name="warColor">
+              <option selected disabled>- select color -</option>
+              <option class="black" value="black" >Shadow</option>
+              <option class="grey" value="grey">Smoke</option>
+              <option class="white" value="white">Light</option>
+              <option class="red" value="red">Fire</option>
+            </select>
+          </label>
+
+          <div class="incomplete"></div>
+
+          <button type="submit" id="modalClose" class="close"></button>
+
+        </form>
+      </div>
+    </div>
+
+    <header class="container">
+      <section>
+        <h4><img class="titleIcon" src="icons/ninja-portrait.svg">RPGo Ninja - Die With Honor</h4>
+      </section>
+    </header>
+
+    <main class="container">
+      <section>
+        <section class="tabArea">
+          <div id="tavern" class="tabContent">
+            <p>show tavern content</p>
+          </div>
+
+          <div id="map" class="map tabContent">
+          </div>
+
+          <div id="char" class="tabContent">
+            <div id="equips" class="equips">
+              <div id="armorEquip" class="armorEquip equipItem">
+              </div>
+              <div id="weaponEquip" class="weaponEquip equipItem">
+              </div>
+              <div id="explosiveEquip" class="explosiveEquip equipItem">
+              </div>
+              <div id="escapeEquip" class="escapeEquip equipItem">
+              </div>
+            </div>
+            <div id="charImage" class="charImage">
+            </div>
+            <div id="stats" class="stats">
+            </div>
+            <div id="inventory" class="inventory">
+            </div>
+          </div>
+
+          <div id="skill" class="tabContent">
+            <p>show character skills</p>
+          </div>
+          <div id="quest" class="tabContent">
+            <p>show quests</p>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="container">
+      <section class="nav">
+        <a id="tavernTab" class="nav-tab" data-tab="tavern" href="#">HOME</a>
+        <a id="mapTab" class="nav-tab" data-tab="map" href="#" navSelect>MAP</a>
+        <a id="charTab" class="nav-tab" data-tab="char" href="#">CHARACTER</a>
+        <a id="skillTab" class="nav-tab" data-tab="skill" href="#">SKILLS</a>
+        <a id="questTab" class="nav-tab" data-tab="quest" href="#">QUESTS</a>
+      </section>
+    </footer>
+
+    <script src="https://www.gstatic.com/firebasejs/3.2.1/firebase.js"></script>
+    <script>
+  // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyBS9_ROvhlLNfjdlSd5oVXMorVPkcTujts",
+        authDomain: "rpgo-109ad.firebaseapp.com",
+        databaseURL: "https://rpgo-109ad.firebaseio.com",
+        storageBucket: "rpgo-109ad.appspot.com",
+      };
+      firebase.initializeApp(config);
+    </script>
+
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/map.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBS9_ROvhlLNfjdlSd5oVXMorVPkcTujts&callback=initMap"></script>
+
+  </body>
+</html>
