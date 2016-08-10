@@ -23,7 +23,6 @@ $(document).ready(function() {
     $('.warClass').removeClass('classSelect');
     $(this).addClass('classSelect');
     warriorClass = $(this).attr('id');
-    console.log(warriorClass);
   });
 
   //returns image to normal size, but keeps selection
@@ -37,8 +36,6 @@ $(document).ready(function() {
     //assign inputs
     warriorName = $('#warName').val();
     warriorColor = $('#warColor').val();
-    console.log(warriorName);
-    console.log(warriorColor);
     //check inputs are selected
     if (warriorClass === undefined || warriorName === undefined || warriorColor === undefined) {
       //error message if incomplete

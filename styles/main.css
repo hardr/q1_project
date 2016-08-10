@@ -128,9 +128,11 @@ section.tabArea {
 
 .mapList {
   text-align: center;
+  height: 100%;
   width: 100%;
   list-style: none;
   clear: both;
+  margin-top: 5px;
   background-color: rgba(224, 221, 172, .5);
 
 }

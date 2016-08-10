@@ -20,6 +20,7 @@ function initMap() {
     center: {lat: 39.739236, lng: -104.990251},
     zoom: 15,
     disableDefaultUI: true,
+    scrollwheel: false,
     styles: mapStyles
   });
   infoWindow = new google.maps.InfoWindow({map: map});
@@ -34,9 +35,9 @@ function initMap() {
       myPos = pos;
 
       infoWindow.setPosition(pos);
-      infoWindow.setContent('Location found.');
+      infoWindow.setContent('Let\'s go ninja!');
       map.setCenter(pos);
-      createMarker(map, markerTavern(), 'tavern');
+      createMarker(map, markerTavern);
     }, function() {
       handleLocationError(true, infoWindow, map.getCenter());
     });
@@ -48,17 +49,15 @@ function initMap() {
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.setPosition(pos);
-  infoWindow.setContent(browserHasGeolocation ?
-                        'Error: The Geolocation service failed.' :
-                        'Error: Your browser doesn\'t support geolocation.');
+  infoWindow.setContent(browserHasGeolocation ? 'Error: The Geolocation service failed.' : 'Error: Your browser doesn\'t support geolocation.');
 }
 
-function createMarker(addMap, markerLoc, type) {
+function createMarker(addMap, markerLoc) {
   marker = new google.maps.Marker({
     map: addMap,
-    position: markerLoc,
+    position: markerLoc.pos,
     icon: {
-      url: '../icons/' + type + '.svg',
+      url: '../icons/' + markerLoc.type + '.svg',
       scaledSize: new google.maps.Size(40, 40),
       origin: new google.maps.Point(0,0), // origin
       anchor: new google.maps.Point(0, 0) // anchor
@@ -66,15 +65,29 @@ function createMarker(addMap, markerLoc, type) {
   });
   marker.addListener('mouseover', function() {
     // map.setCenter(marker.getPosition());
-    infoWindow.setPosition(markerLoc);
-    infoWindow.setContent(type);
+    infoWindow.setPosition(markerLoc.pos);
+    infoWindow.setContent(markerLoc.type);
   });
+  map.addListener('center_changed', function() {
+    var googleMyPos = new google.maps.LatLng(myPos.lat, myPos.lng);
+    var googleMarkerPos = new google.maps.LatLng(markerLoc.pos.lat, markerLoc.pos.lng);
+    console.log(google.maps.geometry.spherical.computeDistanceBetween(googleMyPos, googleMarkerPos));
+
+    if(google.maps.geometry.spherical.computeDistanceBetween(googleMyPos, googleMarkerPos) < 40) {
+      alert('You have arrived!');
+    }
+  });
+
+
   $('<li />')
-    .html('../icons/' + type + '.svg')
+    .html('<img src="../icons/' + markerLoc.type + '.svg" style="width:20px;height:20px;">')
     .click(function(e) {
-      map.panTo(markerLoc);
+      map.panTo(markerLoc.pos);
     })
     .appendTo('#mapList');
+  $('<div />')
+    .html(markerLoc.desc)
+    .appendTo('#quest');
   // marker.addListener('mouseout', function() {
   //   // map.setCenter(marker.getPosition());
   //   infoWindow.setMap(null);
@@ -85,24 +98,30 @@ function createMarker(addMap, markerLoc, type) {
   // });
 }
 
-function markerTavern() {
-  return { lat: 39.733603, lng: -104.992688 };
+var markerTavern = {
+  pos: { lat: 39.733603, lng: -104.992688 },
+  desc: 'The Tavern: A safe place to drown your sorrows, and find tasks',
+  type: 'tavern'
 }
 
-function markerCreek() {
-  return { lat: 39.733300, lng: -104.993383};
+var markerCreek = {
+  pos: { lat: 39.733300, lng: -104.993383},
+  desc: 'Halt, thieves!:Thieves have robbed the tavern and are hiding out near the creek',
+  type: 'quest'
 }
 
-function markerPark() {
-  return { lat: 39.730562, lng: -104.992311};
+var markerPark = {
+  pos: { lat: 39.730562, lng: -104.992311},
+  desc: 'Skynet: Goblins are hacking into the PlaceCage website. This could mean the end of the world if they aren\'t stopped',
+  type: 'quest'
 }
 
 $('#barQuest').on('click', function() {
-  createMarker(map, markerCreek(), 'quest');
+  createMarker(map, markerCreek);
 });
 
 $('#wandQuest').on('click', function() {
-  createMarker(map, markerPark(), 'quest');
+  createMarker(map, markerPark);
 });
 
 
