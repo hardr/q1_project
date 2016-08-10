@@ -9,6 +9,11 @@ $(document).ready(function() {
     $('#welcomeModal').show();
     //sets character screen as default view
     $('#map').show();
+    google.maps.event.trigger(map, "resize");
+  });
+
+  $(window).resize(function() {
+    google.maps.event.trigger(map, "resize");
   });
 
   var warriorClass, warriorName, warriorColor;
