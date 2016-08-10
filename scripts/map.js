@@ -35,7 +35,7 @@ function initMap() {
       myPos = pos;
 
       infoWindow.setPosition(pos);
-      infoWindow.setContent('Let\'s go ninja!');
+      infoWindow.setContent('Let\'s go ninja some shit!');
       map.setCenter(pos);
       createMarker(map, markerTavern);
     }, function() {
@@ -46,6 +46,16 @@ function initMap() {
     handleLocationError(false, infoWindow, map.getCenter());
   }
 }
+
+setInterval(function() {
+  navigator.geolocation.getCurrentPosition(function(position) {
+    myPos = {
+      lat: position.coords.latitude,
+      lng: position.coords.longitude
+    };
+    map.setCenter(pos);
+  })
+}, 10000);
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
   infoWindow.setPosition(pos);
@@ -73,11 +83,10 @@ function createMarker(addMap, markerLoc) {
     var googleMarkerPos = new google.maps.LatLng(markerLoc.pos.lat, markerLoc.pos.lng);
     console.log(google.maps.geometry.spherical.computeDistanceBetween(googleMyPos, googleMarkerPos));
 
-    if(google.maps.geometry.spherical.computeDistanceBetween(googleMyPos, googleMarkerPos) < 40) {
+    if (google.maps.geometry.spherical.computeDistanceBetween(googleMyPos, googleMarkerPos) < 40) {
       alert('You have arrived!');
     }
   });
-
 
   $('<li />')
     .html('<img src="./icons/' + markerLoc.type + '.svg" style="width:20px;height:20px;">')
@@ -124,7 +133,6 @@ $('#wandQuest').on('click', function() {
   createMarker(map, markerPark);
 });
 
-
 // function updateMap() {
 //   $.ajax({
 //     url: 'https://maps.googleapis.com/maps/api/js?key=AIzaSyBS9_ROvhlLNfjdlSd5oVXMorVPkcTujts&callback=initMap',
@@ -137,45 +145,45 @@ $('#wandQuest').on('click', function() {
 
 var mapStyles = [
   {
-    "featureType": "landscape.natural.terrain",
-    "elementType": "geometry.fill",
-    "stylers": [
-      { "hue": "#ffee00" },
-      { "visibility": "simplified" },
-      { "color": "#13611A" }
+    featureType: 'landscape.natural.terrain',
+    elementType: 'geometry.fill',
+    stylers: [
+      { hue: '#ffee00' },
+      { visibility: 'simplified' },
+      { color: '#13611A' }
     ]
   },{
-    "featureType": "road",
-    "elementType": "geometry.fill",
-    "stylers": [
-      { "color": "#E0A869" },
-      { "visibility": "on" }
+    featureType: 'road',
+    elementType: 'geometry.fill',
+    stylers: [
+      { color: '#E0A869' },
+      { visibility: 'on' }
     ]
   },{
-    "featureType": "road",
-    "elementType": "labels",
-    "stylers": [
-      { "visibility": "off" }
+    featureType: 'road',
+    elementType: 'labels',
+    stylers: [
+      { visibility: 'off' }
     ]
   },{
-    "featureType": "landscape.man_made",
-    "stylers": [
-      { "visibility": "simplified" },
-      { "color": "#938a3b" },
-      { "lightness": -13 }
+    featureType: 'landscape.man_made',
+    stylers: [
+      { visibility: 'simplified' },
+      { color: '#938a3b' },
+      { lightness: -13 }
     ]
   },{
-    "featureType": "poi",
-    "elementType": "labels",
-    "stylers": [
-      { "visibility": "off" }
+    featureType: 'poi',
+    elementType: 'labels',
+    stylers: [
+      { visibility: 'off' }
     ]
   },{
-    "featureType": "water",
-    "elementType": "geometry.fill",
-    "stylers": [
-      { "visibility": "on" },
-      { "color": "#4480c8" }
+    featureType: 'water',
+    elementType: 'geometry.fill',
+    stylers: [
+      { visibility: 'on' },
+      { color: '#4480c8' }
     ]
   },{
   }
