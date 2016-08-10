@@ -57,7 +57,7 @@ function createMarker(addMap, markerLoc) {
     map: addMap,
     position: markerLoc.pos,
     icon: {
-      url: '../icons/' + markerLoc.type + '.svg',
+      url: './icons/' + markerLoc.type + '.svg',
       scaledSize: new google.maps.Size(40, 40),
       origin: new google.maps.Point(0,0), // origin
       anchor: new google.maps.Point(0, 0) // anchor
@@ -102,19 +102,19 @@ var markerTavern = {
   pos: { lat: 39.733603, lng: -104.992688 },
   desc: 'The Tavern: A safe place to drown your sorrows, and find tasks',
   type: 'tavern'
-}
+};
 
 var markerCreek = {
   pos: { lat: 39.733300, lng: -104.993383},
   desc: 'Halt, thieves!:Thieves have robbed the tavern and are hiding out near the creek',
   type: 'quest'
-}
+};
 
 var markerPark = {
   pos: { lat: 39.730562, lng: -104.992311},
   desc: 'Skynet: Goblins are hacking into the PlaceCage website. This could mean the end of the world if they aren\'t stopped',
   type: 'quest'
-}
+};
 
 $('#barQuest').on('click', function() {
   createMarker(map, markerCreek);
