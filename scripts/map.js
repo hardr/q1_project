@@ -53,7 +53,7 @@ setInterval(function() {
       lat: position.coords.latitude,
       lng: position.coords.longitude
     };
-    map.setCenter(pos);
+    map.setCenter(myPos);
   })
 }, 10000);
 
