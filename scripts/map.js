@@ -80,7 +80,7 @@ function createMarker(addMap, markerLoc) {
 
 
   $('<li />')
-    .html('<img src="../icons/' + markerLoc.type + '.svg" style="width:20px;height:20px;">')
+    .html('<img src="./icons/' + markerLoc.type + '.svg" style="width:20px;height:20px;">')
     .click(function(e) {
       map.panTo(markerLoc.pos);
     })
