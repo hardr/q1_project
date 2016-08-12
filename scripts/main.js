@@ -41,8 +41,7 @@ $(document).ready(function() {
       $('#charImage').append('<img src="images/' + warriorClass + '.jpeg"</img>');
       //hide modal if complete
       $('#charModal').hide();
-      $('#tavCombatModal').fadeIn(1);
-
+      $('#tavCombatModal').show();
       $('.intense').delay(10000).fadeOut(1000);
       $('.fatality').hide().delay(11000).fadeIn(1).delay(10000);
     } else {
