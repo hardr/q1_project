@@ -54,7 +54,7 @@ $(document).ready(function() {
   $('.fatality').on('click', function(e) {
     e.preventDefault();
     $('#tavCombatModal').hide();
-  })
+  });
 
   $('#tavern').on('click', '.tavBtn', function() {
     $(this).append('<div class="questAccept">I\'ll check it out!</div>');
