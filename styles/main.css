@@ -88,6 +88,35 @@ a:hover, a:visited, a:link, a:active
   opacity: .5;
 }
 
+.modalCombat {
+
+  display: none;
+}
+
+.tavCombat {
+  background-image: url("../images/barFight.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid rgb(61, 58, 25);
+  width: 90%;
+  height: 80%;
+  position: relative;
+}
+
+.intense {
+  position: relative;
+  top: 200px;
+  left: 600px;
+  height: 350px;
+}
+
+.fatality {
+  position: relative;
+  top: 150px;
+  left: 550px;
+}
 
 /*header styles*/
 
@@ -119,6 +148,27 @@ section.tabArea {
 .tabContent {
   display: none;
   width: 100%;
+  max-height: 350px;
+}
+
+.tav {
+  background-image: url("../images/tavern.jpeg");
+  background-repeat: no-repeat;
+  background-size: contain;
+  height: 350px;
+  width: 100%;
+  color: #DE8915;
+  margin: 0 auto;
+}
+
+.tavBtn {
+  border: 1px solid rgb(61, 58, 25);
+  width: 400px;
+  margin: 10px;
+}
+
+.tavBtn:hover {
+  background-color: rgb(61, 58, 25);
 }
 
 .mapCont {
@@ -128,9 +178,11 @@ section.tabArea {
 
 .mapList {
   text-align: center;
+  height: 100%;
   width: 100%;
   list-style: none;
   clear: both;
+  margin-top: 5px;
   background-color: rgba(224, 221, 172, .5);
 
 }
@@ -186,6 +238,23 @@ section.tabArea {
 
 .charImage img:hover {
   transform: scale(1.5);
+}
+
+.skill {
+  background-image: url("../images/skills.jpg");
+  background-size: contain;
+  height: 350px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.quest {
+  text-align: center;
+  color: #DE8915;
+}
+
+.quest div:first-child {
+  color: grey;
 }
 
 /*footer styles*/
