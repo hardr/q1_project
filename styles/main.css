@@ -102,6 +102,20 @@ a:hover, a:visited, a:link, a:active
   border: 1px solid rgb(61, 58, 25);
   width: 90%;
   height: 80%;
+  position: relative;
+}
+
+.intense {
+  position: relative;
+  top: 200px;
+  left: 600px;
+  height: 350px;
+}
+
+.fatality {
+  position: relative;
+  top: 150px;
+  left: 550px;
 }
 
 /*header styles*/
@@ -237,6 +251,10 @@ section.tabArea {
 .quest {
   text-align: center;
   color: #DE8915;
+}
+
+.quest div:first-child {
+  color: grey;
 }
 
 /*footer styles*/
