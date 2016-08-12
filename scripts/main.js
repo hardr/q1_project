@@ -4,7 +4,6 @@ $(document).ready(function() {
   var modal = document.getElementById('welcomeModal');
   var span = document.getElementById('modalClose');
 
-
   //open modal on page load
   $(window).load(function() {
     $('#welcomeModal').show();
@@ -18,7 +17,6 @@ $(document).ready(function() {
   });
 
   var warriorClass, warriorName, warriorColor;
-
 
   //indicates selection and grabs value
   $('form').on('click', '.warClass', function() {
